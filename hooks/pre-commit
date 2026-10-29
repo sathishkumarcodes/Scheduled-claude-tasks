@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Installed via scripts/install-hooks.sh (sets core.hooksPath=hooks).
+set -euo pipefail
+root="$(git rev-parse --show-toplevel)"
+"$root/scripts/check-secrets.sh" --staged
+if git diff --cached --name-only | grep -q '^tasks/'; then
+  python3 "$root/scripts/validate_tasks.py"
+fi

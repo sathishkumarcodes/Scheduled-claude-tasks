@@ -1,0 +1,32 @@
+# --- Secrets: never commit these -------------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+*.secret
+secrets/
+credentials*.json
+token*.json
+.netrc
+.npmrc
+.pypirc
+
+# --- Local / editor noise --------------------------------------------------
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+__pycache__/
+*.pyc
+.venv/
+venv/
+tmp/
+*.tmp
+*.log

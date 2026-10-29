@@ -1,0 +1,45 @@
+# Metadata for one Claude scheduled task.
+# The live schedule is owned by Claude; this file is the versioned record of it.
+# Never put tokens, keys or passwords in this file.
+
+name: Automated Product Tech Post
+slug: automated-product-tech-post
+description: >
+  Weekly research on the previous Monday–Sunday of AI, tech, product and
+  engineering news, producing one publication-ready Substack essay for review.
+
+# Link to the live scheduled task in Claude (an identifier, not a secret).
+claude_task_id: trig_01Bxk2DcxMJK4d2EfjSgz2gs
+
+# active | paused | not_scheduled | retired
+status: active
+
+schedule:
+  cron: "15 23 * * 1"            # minute hour day-of-month month day-of-week
+  timezone: America/Los_Angeles
+  human: Mondays at 11:15 PM Pacific
+  # Exact string Claude stores; must equal "CRON_TZ=<timezone> <cron>".
+  claude_cron_expression: "CRON_TZ=America/Los_Angeles 15 23 * * 1"
+
+# Exact text Claude runs, kept verbatim.
+instructions_file: instructions.md
+
+output:
+  drafts_dir: drafts/automated-product-tech-post
+  filename_pattern: "YYYY/YYYY-MM-DD-<title-slug>.md"
+  auto_publish: false            # drafts are for editorial review only
+
+# Snapshot of execution settings that Claude manages (informational only;
+# editing these values here changes nothing in Claude).
+claude_managed_snapshot:
+  synced_at: "2026-10-28"
+  permission_mode: auto
+  persist_session: false
+  model: default
+  connectors:
+    - Google_Drive
+    - Claude_Docs
+    - Figma
+    - Lennys
+    - Claude_Code_Remote
+  notifications: server default

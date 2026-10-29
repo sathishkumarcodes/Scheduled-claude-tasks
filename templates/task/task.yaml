@@ -1,0 +1,20 @@
+name: __NAME__
+slug: __SLUG__
+description: >
+  One or two sentences on what this task does.
+
+claude_task_id: null             # filled in after Claude creates the scheduled task
+status: not_scheduled            # active | paused | not_scheduled | retired
+
+schedule:
+  cron: "0 9 * * 1"              # minute hour day-of-month month day-of-week
+  timezone: America/Los_Angeles
+  human: Mondays at 9:00 AM Pacific
+  claude_cron_expression: "CRON_TZ=America/Los_Angeles 0 9 * * 1"
+
+instructions_file: instructions.md
+
+output:
+  drafts_dir: drafts/__SLUG__
+  filename_pattern: "YYYY/YYYY-MM-DD-<title-slug>.md"
+  auto_publish: false
